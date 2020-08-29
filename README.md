@@ -53,11 +53,11 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses             |
 |------------|---------------------|----------------------------------|
-| Jump Box   | No                  | 98.117.XXX.XXX:22                |
-| Web-1      | No                  | 98.117.XXX.XXX:80                |
-| Web-2      | No                  | 98.117.XXX.XXX:80                |
-| Web-3      | No                  | 98.117.XXX.XXX:80                |
-| Elk Server | No                  | 98.117.XXX.XXX:5601, 10.1.0.4:22 |
+| Jump Box   | No                  | 98.117.XXX.XXX                   |
+| Web-1      | No                  | 98.117.XXX.XXX                   |
+| Web-2      | No                  | 98.117.XXX.XXX                   |
+| Web-3      | No                  | 98.117.XXX.XXX                   |
+| Elk Server | No                  | 98.117.XXX.XXX, 10.0.0.7:        |
 
 ### Elk Configuration
 
@@ -75,18 +75,21 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- Web-1 10.0.0.11
-- Web-2 10.0.0.12
-- Web-3 10.0.0.13
+- Web-1 IP:10.0.0.11
+- Web-2 IP:10.0.0.12
+- Web-3 IP:10.0.0.13
 
 We have installed the following Beats on these machines:
-- Filebeat and Metricbeat
+- Filebeat
+- Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat collects the systems log files or locations that have been specified. An example of such logs can be the monitoring of ssh connections.
+
 ![filebeatssh.png](Images/filebeatssh.png)
 
 -Metricbeat is used to monitor services that are running. For example, Metricbeat can monitor Docker containers and their CPU usage, Memory usage, How many are running and Network IO.
+
 ![metricbeatex.png](Images/metricbeatex.png)
 
 ### Using the Playbook
@@ -126,7 +129,7 @@ You can copy the playbook here:
 
 You update the hosts file to include the groups and server IP addresses. 
 
-  - [webservers]
+    [webservers]
     10.0.0.11 ansible_python_interpreter=/usr/bin/python3
     10.0.0.12 ansible_python_interpreter=/usr/bin/python3
     10.0.0.13 ansible_python_interpreter=/usr/bin/python3
@@ -137,17 +140,16 @@ You update the hosts file to include the groups and server IP addresses.
 
 Navigate to http://13.64.153.246:5601/app/kibana in order to check that the ELK server is running.
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 Commands download and run the playbook.
 - once on Jump Box Provisioner terminal
 
-  $ sudo docker container list -a'
-  $ sudo docker start <container_name>'
-  $ sudo docker attach <container_name>'
+  - $ sudo docker container list -a'
+  - $ sudo docker start <container_name>'
+  - $ sudo docker attach <container_name>'
 
 - once in Ansible container "root@xxxxx000" and all configs have been updated...
 
-  $ cd /etc/ansible/roles
-  $ curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
-  $ ansible-playbook /etc/ansible/roles/webelkplaybook.yml
+  - $ cd /etc/ansible/roles
+  - $ curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
+  - $ ansible-playbook /etc/ansible/roles/webelkplaybook.yml
