@@ -99,13 +99,14 @@ SSH into the control node and follow the steps below:
 - Copy the ![webelkplaybook.yml](playbooks/webelkplaybook.yml) file to /etc/ansible/roles.
 - Update the hosts file to include the IP address and groups that are to be automated.
     
-    [webservers]
+''' [webservers]
     10.0.0.11 ansible_python_interpreter=/usr/bin/python3
     10.0.0.12 ansible_python_interpreter=/usr/bin/python3
     10.0.0.13 ansible_python_interpreter=/usr/bin/python3
 
     [elk]
     10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+'''
 
 - Update the filebeat-config.yml to include:
     
