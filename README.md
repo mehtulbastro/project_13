@@ -1,6 +1,6 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below. You can also find the editable file here, ![Networkdrawing] (Images/redteamnet.drawio).
+The files in this repository were used to configure the network depicted below. You can also find the editable file here, https://github.com/mehtulbastro/project_13/Images/redteamnet.drawio.
 
 ![Network Diagram](Images/redteam_network_diagram.png)
 
