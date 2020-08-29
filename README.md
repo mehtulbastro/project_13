@@ -147,9 +147,9 @@ Commands download and run the playbook.
 - once on Jump Box Provisioner terminal
 
 ```
-sudo docker container list -a'
-sudo docker start <container_name>'
-sudo docker attach <container_name>'
+sudo docker container list -a
+sudo docker start <container_name>
+sudo docker attach <container_name>
 ```
 
 - once in Ansible container "root@xxxxx000" and all configs have been updated...
