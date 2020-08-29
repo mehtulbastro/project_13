@@ -6,11 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the webelkplaybook.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-  Full Deploy - 'ansible-playbook /etc/ansible/roles/webelkplaybook.yml'
-  Web Server VMs - 'ansible-playbook /etc/ansible/roles/webplaybk.yml'
-  Elk Server Deployment - 'ansible-playbook /etc/ansible/roles/elkplaybk.yml'
-  Filebeat - 'ansible-playbook /etc/ansible/roles/filebeatplybk.yml'
-  Metricbeat - 'ansible-playbook /etc/ansible/roles/metricbeatplybk.yml'
+![Elk Deployment](playbooks/webelkplaybook.yml)
 
 
 This document contains the following details:
@@ -26,12 +22,14 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting bad traffic to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting bad traffic to the network. The off-loading function can help defend against DDoS attacks and also provide a secure location where admins can automate virtual server instructions and deplowment.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the services and system logs.
-- _TODO: What does Filebeat watch for?_ 
-- _TODO: What does Metricbeat record?_
+
+Filebeat is used to monitor log files that have been specified. They consist of mainly system logs.
+
+Metricbeat records metrics and statistics of the servers from system and services running on the server. Since our servers are running Apache, that will be Metricbeat's main focus.
+
 
 The configuration details of each machine may be found below.
 
