@@ -1,6 +1,6 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
+The files in this repository were used to configure the network depicted below. You can also find the editable file here, ![Networkdrawing] (Images/redteamnet.drawio).
 
 ![Network Diagram](Images/redteam_network_diagram.png)
 
@@ -22,7 +22,7 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting bad traffic to the network. The off-loading function can help defend against DDoS attacks and also provide a secure location where admins can automate virtual server instructions and deplowment.
+Load balancing ensures that the application will be highly available, in addition to restricting bad traffic to the network. The off-loading function can help defend against DDoS attacks and also provide a secure location where admins can automate virtual server instructions and deployment.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the services and system logs.
 
@@ -54,10 +54,10 @@ A summary of the access policies in place can be found in the table below.
 | Name       | Publicly Accessible | Allowed IP Addresses             |
 |------------|---------------------|----------------------------------|
 | Jump Box   | No                  | 98.117.XXX.XXX                   |
-| Web-1      | No                  | 98.117.XXX.XXX                   |
-| Web-2      | No                  | 98.117.XXX.XXX                   |
-| Web-3      | No                  | 98.117.XXX.XXX                   |
-| Elk Server | No                  | 98.117.XXX.XXX, 10.0.0.7         |
+| Web-1      | No                  | 10.0.0.7                         |
+| Web-2      | No                  | 10.0.0.7                         |
+| Web-3      | No                  | 10.0.0.7                         |
+| Elk Server | No                  | 10.0.0.7                         |
 
 ### Elk Configuration
 
@@ -156,6 +156,6 @@ sudo docker attach <container_name>
 
 ```
 cd /etc/ansible/roles
-curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
+curl –O https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
 ansible-playbook webelkplaybook.yml
 ```
