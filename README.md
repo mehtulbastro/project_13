@@ -98,31 +98,31 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the ![webelkplaybook.yml](playbooks/webelkplaybook.yml) file to /etc/ansible/roles.
 - Update the hosts file to include the IP address and groups that are to be automated.
-    
-    [webservers]
-    10.0.0.11 ansible_python_interpreter=/usr/bin/python3
-    10.0.0.12 ansible_python_interpreter=/usr/bin/python3
-    10.0.0.13 ansible_python_interpreter=/usr/bin/python3
+'''
+[webservers]
+10.0.0.11 ansible_python_interpreter=/usr/bin/python3
+10.0.0.12 ansible_python_interpreter=/usr/bin/python3
+10.0.0.13 ansible_python_interpreter=/usr/bin/python3
 
-    [elk]
-    10.1.0.4 ansible_python_interpreter=/usr/bin/python3
-
+[elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+'''
 
 - Update the filebeat-config.yml to include:
-    
-    hosts: ["10.1.0.4:9200"] 
-    
-    (under setup.kibana)
-    host: "10.1.0.4:5601"
+'''
+hosts: ["10.1.0.4:9200"] 
+setup.kibana
+  host: "10.1.0.4:5601"
+'''
 
 - Update the metricbeat-config.yml to include:
-    
-    setup.kibana:
-      host: "10.1.0.4:5601"
-    
-    output.elasticsearch:
-      hosts: ["10.1.0.4:9200"]
-    
+'''
+setup.kibana:
+  host: "10.1.0.4:5601"
+
+output.elasticsearch:
+  hosts: ["10.1.0.4:9200"]
+'''  
 
 Run the playbook, and navigate to http://13.64.153.246:5601/app/kibana to check that the installation worked as expected.
 
@@ -131,27 +131,31 @@ You can copy the playbook here:
 
 You update the hosts file to include the groups and server IP addresses. 
 
-    [webservers]
-    10.0.0.11 ansible_python_interpreter=/usr/bin/python3
-    10.0.0.12 ansible_python_interpreter=/usr/bin/python3
-    10.0.0.13 ansible_python_interpreter=/usr/bin/python3
+'''
+[webservers]
+10.0.0.11 ansible_python_interpreter=/usr/bin/python3
+10.0.0.12 ansible_python_interpreter=/usr/bin/python3
+10.0.0.13 ansible_python_interpreter=/usr/bin/python3
 
-    [elk]
-    10.1.0.4 ansible_python_interpreter=/usr/bin/python3
-
+[elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+'''
 
 Navigate to http://13.64.153.246:5601/app/kibana in order to check that the ELK server is running.
-
 
 Commands download and run the playbook.
 - once on Jump Box Provisioner terminal
 
-  - $ sudo docker container list -a'
-  - $ sudo docker start <container_name>'
-  - $ sudo docker attach <container_name>'
+'''
+sudo docker container list -a'
+sudo docker start <container_name>'
+sudo docker attach <container_name>'
+'''
 
 - once in Ansible container "root@xxxxx000" and all configs have been updated...
 
-  - $ cd /etc/ansible/roles
-  - $ curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
-  - $ ansible-playbook webelkplaybook.yml
+'''
+cd /etc/ansible/roles
+curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
+ansible-playbook webelkplaybook.yml
+'''
