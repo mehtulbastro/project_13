@@ -152,4 +152,4 @@ Commands download and run the playbook.
 
   - $ cd /etc/ansible/roles
   - $ curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
-  - $ ansible-playbook /etc/ansible/roles/webelkplaybook.yml
+  - $ ansible-playbook webelkplaybook.yml
