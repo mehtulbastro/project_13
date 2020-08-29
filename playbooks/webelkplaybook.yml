@@ -127,6 +127,3 @@
 
   - name: start metricbeat service
     command: metricbeat run
-
-  - name: echo complete
-    command: echo "Deployments complete!"

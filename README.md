@@ -138,3 +138,16 @@ You update the hosts file to include the groups and server IP addresses.
 Navigate to http://13.64.153.246:5601/app/kibana in order to check that the ELK server is running.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+Commands download and run the playbook.
+- once on Jump Box Provisioner terminal
+
+  $ sudo docker container list -a'
+  $ sudo docker start <container_name>'
+  $ sudo docker attach <container_name>'
+
+- once in Ansible container "root@xxxxx000" and all configs have been updated...
+
+  $ cd /etc/ansible/roles
+  $ curl –O [URL] https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
+  $ ansible-playbook /etc/ansible/roles/webelkplaybook.yml
