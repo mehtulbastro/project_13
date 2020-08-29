@@ -57,7 +57,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-1      | No                  | 98.117.XXX.XXX                   |
 | Web-2      | No                  | 98.117.XXX.XXX                   |
 | Web-3      | No                  | 98.117.XXX.XXX                   |
-| Elk Server | No                  | 98.117.XXX.XXX, 10.0.0.7:        |
+| Elk Server | No                  | 98.117.XXX.XXX, 10.0.0.7         |
 
 ### Elk Configuration
 
