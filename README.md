@@ -4,9 +4,16 @@ The files in this repository were used to configure the network depicted below. 
 
 ![Network Diagram](diagrams/redteam_network_diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the webelkplaybook.yml file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the redteam_complete_pb.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-![webelkplaybook.yml](ansible/webelkplaybook.yml)
+Full ansible playbook:
+![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
+
+Individual playbooks:
+Web server ![webpbk.yml](ansible/webpbk.yml)
+Elk server ![elkpbk.yml](ansible/elkpbk.yml)
+Filebeat ![filebeatpbk.yml](ansible/filebeatpbk.yml)
+Metricbeat ![metricbeatpbk.yml](ansible/metricbeatpbk.yml)
 
 
 This document contains the following details:
@@ -97,7 +104,7 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the ![webelkplaybook.yml](ansible/webelkplaybook.yml) file to /etc/ansible/roles.
+- Copy the ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml) file to /etc/ansible/roles.
 - Update the hosts file to include the IP address and groups that are to be automated.
 ```
 [webservers]
@@ -128,7 +135,7 @@ output.elasticsearch:
 Run the playbook, and navigate to http://13.64.153.246:5601/app/kibana to check that the installation worked as expected.
 
 You can copy the playbook here:
-![webelkplaybook.yml](ansible/webelkplaybook.yml)
+![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
 
 You update the hosts file to include the groups and server IP addresses. 
 
@@ -157,6 +164,6 @@ sudo docker attach <container_name>
 
 ```
 cd /etc/ansible/roles
-curl –O https://github.com/mehtulbastro/project_13/blob/master/ansible/webelkplaybook.yml
-ansible-playbook webelkplaybook.yml
+curl –O https://github.com/mehtulbastro/project_13/blob/master/ansible/redteam_complete_pb.yml
+ansible-playbook redteam_complete_pb.yml
 ```
