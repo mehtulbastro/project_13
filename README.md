@@ -41,30 +41,30 @@ The configuration details of each machine may be found below.
 | Name                 | Function   | IP Address | Operating System |
 |----------------------|------------|------------|------------------|
 | Jump Box Provisioner | Gateway    | 10.0.0.7   | Linux            |
-| Web-1                | Web Server | 10.1.0.11  | Linux            |
-| Web-2                | Web Server | 10.1.0.12  | Linux            |
-| Web-3                | Web Server | 10.1.0.13  | Linux            |
+| DVWA WebVM-1         | Web Server | 10.1.0.11  | Linux            |
+| DVWA WebVM-2         | Web Server | 10.1.0.12  | Linux            |
+| DVWA WebVM-3         | Web Server | 10.1.0.13  | Linux            |
 | Red Elk Server       | ELK Stack  | 10.1.0.4   | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- Local workstation's public ip of 98.117.XX.XX
-
-Machines within the network can only be accessed by 10.0.0.7 using ansible public keys.
+Only the Jump Box Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: Local workstation's public ip of 98.117.XXX.XXX
++ Machines within the network can only be accessed by 10.0.0.7 using ansible public keys.
++ Access for web server DVWA is through the Load Balancer IP: http://<load_balancer_public_IP>/setup.php via 98.117.XXX.XXX only. This address is dynamic and may change.
++ Access for Kibana is through the Elk Server IP: http://<elk-server_public_IP>:5601/app/kibana via 98.117.XXX.XXX only. This address is dynamic and may change.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name        | Publicly Accessible | Allowed IP Addresses             |
-|-------------|---------------------|----------------------------------|
-| Jump Box    | No                  | 98.117.XXX.XXX                   |
-| Loadbalancer| No                  | 98.117.XXX.XXX                   |
-| Web-1       | No                  | 10.0.0.7                         |
-| Web-2       | No                  | 10.0.0.7                         |
-| Web-3       | No                  | 10.0.0.7                         |
-| Elk Server  | No                  | 98.117.XXX.XXX, 10.0.0.7         |
+| Name         | Publicly Accessible | Allowed IP Addresses             |
+|--------------|---------------------|----------------------------------|
+| Jump Box     | No                  | 98.117.XXX.XXX                   |
+| Loadbalancer | No                  | 98.117.XXX.XXX                   |
+| DVWA WebVM-1 | No                  | 10.0.0.7                         |
+| DVWA WebVM-2 | No                  | 10.0.0.7                         |
+| DVWA WebVM-3 | No                  | 10.0.0.7                         |
+| Elk Server   | No                  | 98.117.XXX.XXX, 10.0.0.7         |
 
 ### Elk Configuration
 
@@ -131,10 +131,14 @@ output.elasticsearch:
   hosts: ["10.1.0.4:9200"]
 ```  
 
-Run the playbook, and navigate to http://13.64.153.246:5601/app/kibana to check that the installation worked as expected.
+Run the playbook, and navigate to http://<elk-server_public_IP>:5601/app/kibana to check that the installation worked as expected.
 
 You can copy the playbook here:
-![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
++ ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
+
+You can copy the config files here:
++ ![filebeat-config.yml](ansible/filebeat-config.yml)
++ ![metricbeat-config.yml](ansible/metricbeat-config.yml)
 
 You update the hosts file to include the groups and server IP addresses. 
 
