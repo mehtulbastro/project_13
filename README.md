@@ -1,12 +1,12 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below. You can also find the editable file here, ![redteam.drawio](Images/redteamnet.drawio) with the website https://www.draw.io/.
+The files in this repository were used to configure the network depicted below. You can also find the editable file here, ![redteam.drawio](diagrams/redteamnet.drawio) with the website https://www.draw.io/.
 
-![Network Diagram](Images/redteam_network_diagram.png)
+![Network Diagram](diagrams/redteam_network_diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the webelkplaybook.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-![webelkplaybook.yml](playbooks/webelkplaybook.yml)
+![webelkplaybook.yml](ansible/webelkplaybook.yml)
 
 
 This document contains the following details:
@@ -71,7 +71,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Elk Server docker ps output](Images/docker_ps_output.png)
+![Elk Server docker ps output](images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -86,17 +86,17 @@ We have installed the following Beats on these machines:
 These Beats allow us to collect the following information from each machine:
 - Filebeat collects the systems log files or locations that have been specified. An example of such logs can be the monitoring of ssh connections.
 
-![filebeatssh.png](Images/filebeatssh.png)
+![filebeatssh.png](images/filebeatssh.png)
 
 -Metricbeat is used to monitor services that are running. For example, Metricbeat can monitor Docker containers and their CPU usage, Memory usage, How many are running and Network IO.
 
-![metricbeatex.png](Images/metricbeatex.png)
+![metricbeatex.png](images/metricbeatex.png)
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the ![webelkplaybook.yml](playbooks/webelkplaybook.yml) file to /etc/ansible/roles.
+- Copy the ![webelkplaybook.yml](ansible/webelkplaybook.yml) file to /etc/ansible/roles.
 - Update the hosts file to include the IP address and groups that are to be automated.
 ```
 [webservers]
@@ -127,7 +127,7 @@ output.elasticsearch:
 Run the playbook, and navigate to http://13.64.153.246:5601/app/kibana to check that the installation worked as expected.
 
 You can copy the playbook here:
-![webelkplaybook.yml](playbooks/webelkplaybook.yml)
+![webelkplaybook.yml](ansible/webelkplaybook.yml)
 
 You update the hosts file to include the groups and server IP addresses. 
 
@@ -156,6 +156,6 @@ sudo docker attach <container_name>
 
 ```
 cd /etc/ansible/roles
-curl –O https://github.com/mehtulbastro/project_13/blob/master/playbooks/webelkplaybook.yml
+curl –O https://github.com/mehtulbastro/project_13/blob/master/ansible/webelkplaybook.yml
 ansible-playbook webelkplaybook.yml
 ```
