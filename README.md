@@ -152,7 +152,7 @@ You update the hosts file to include the groups and server IP addresses.
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 ```
 
-Navigate to http://13.64.153.246:5601/app/kibana in order to check that the ELK server is running.
+Navigate to http://<elk-server_public_IP>:5601/app/kibana in order to check that the ELK server is running.
 
 Commands download and run the playbook.
 - once on Jump Box Provisioner terminal
