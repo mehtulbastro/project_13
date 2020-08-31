@@ -9,10 +9,10 @@ These files have been tested and used to generate a live ELK deployment on Azure
 Full ansible playbook ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
 
 Individual playbooks:
-* Web server ![webpbk.yml](ansible/webpbk.yml)
-* Elk server ![elkpbk.yml](ansible/elkpbk.yml)
-* Filebeat ![filebeatpbk.yml](ansible/filebeatpbk.yml)
-* Metricbeat ![metricbeatpbk.yml](ansible/metricbeatpbk.yml)
+* Web server [webpbk.yml](ansible/webpbk.yml "webpbk")
+* Elk server [elkpbk.yml](ansible/elkpbk.yml "elkpbk")
+* Filebeat [filebeatpbk.yml](ansible/filebeatpbk.yml "filebeatpbk")
+* Metricbeat [metricbeatpbk.yml](ansible/metricbeatpbk.yml "metricbeatpbk")
 
 
 This document contains the following details:
@@ -82,9 +82,9 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- Web-1 IP:10.0.0.11
-- Web-2 IP:10.0.0.12
-- Web-3 IP:10.0.0.13
+- DVWA WebVM-1 IP:10.0.0.11
+- DVWA WebVM-2 IP:10.0.0.12
+- DVWA WebVM-3 IP:10.0.0.13
 
 We have installed the following Beats on these machines:
 - Filebeat
@@ -103,7 +103,9 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml) file to /etc/ansible/roles.
+
+- Copy the [redteam_complete_pb.yml](ansible/redteam_complete_pb.yml "redteam_complete_pb") file to /etc/ansible/roles.
+
 - Update the hosts file to include the IP address and groups that are to be automated.
 ```
 [webservers]
@@ -134,11 +136,11 @@ output.elasticsearch:
 Run the playbook, and navigate to http://<elk-server_public_IP>:5601/app/kibana to check that the installation worked as expected.
 
 You can copy the playbook here:
-+ ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
++ [redteam_complete_pb.yml](ansible/redteam_complete_pb.yml "redteam_complete_pb")
 
 You can copy the config files here:
-+ ![filebeat-config.yml](ansible/filebeat-config.yml)
-+ ![metricbeat-config.yml](ansible/metricbeat-config.yml)
++ [filebeat-config.yml](ansible/filebeat-config.yml "filebeat-config")
++ [metricbeat-config.yml](ansible/metricbeat-config.yml "metricbeat-config")
 
 You update the hosts file to include the groups and server IP addresses. 
 
@@ -155,7 +157,7 @@ You update the hosts file to include the groups and server IP addresses.
 Navigate to http://<elk-server_public_IP>:5601/app/kibana in order to check that the ELK server is running.
 
 Commands download and run the playbook.
-- once on Jump Box Provisioner terminal
+- once on Jump Box Provisioner terminal using ssh
 
 ```
 sudo docker container list -a
@@ -163,7 +165,7 @@ sudo docker start <container_name>
 sudo docker attach <container_name>
 ```
 
-- once in Ansible container "root@xxxxx000" and all configs have been updated...
+- once in ansible container (you will recognize by user "root@xxxxx000") and once all configs have been updated...
 
 ```
 cd /etc/ansible/roles
