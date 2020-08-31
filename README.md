@@ -51,13 +51,14 @@ Machines within the network can only be accessed by 10.0.0.7 using ansible publi
 
 A summary of the access policies in place can be found in the table below.
 
-| Name       | Publicly Accessible | Allowed IP Addresses             |
-|------------|---------------------|----------------------------------|
-| Jump Box   | No                  | 98.117.XXX.XXX                   |
-| Web-1      | No                  | 10.0.0.7                         |
-| Web-2      | No                  | 10.0.0.7                         |
-| Web-3      | No                  | 10.0.0.7                         |
-| Elk Server | No                  | 98.117.XXX.XXX, 10.0.0.7         |
+| Name        | Publicly Accessible | Allowed IP Addresses             |
+|-------------|---------------------|----------------------------------|
+| Jump Box    | No                  | 98.117.XXX.XXX                   |
+| Loadbalancer| No                  | 98.117.XXX.XXX                   |
+| Web-1       | No                  | 10.0.0.7                         |
+| Web-2       | No                  | 10.0.0.7                         |
+| Web-3       | No                  | 10.0.0.7                         |
+| Elk Server  | No                  | 98.117.XXX.XXX, 10.0.0.7         |
 
 ### Elk Configuration
 
