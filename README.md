@@ -1,12 +1,12 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below. You can also find the editable file here, ![redteam.drawio](diagrams/redteamnet.drawio) with the website https://www.draw.io/.
+The files in this repository were used to configure the network depicted below. You can also find the editable file here, [redteam.drawio](diagrams/redteamnet.drawio) with the website https://www.draw.io/.
 
 ![Network Diagram](diagrams/redteam_network_diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the redteam_complete_pb.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-Full ansible playbook ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
+Full ansible playbook [redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
 
 Individual playbooks:
 * Web server [webpbk.yml](ansible/webpbk.yml "webpbk")
