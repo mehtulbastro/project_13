@@ -6,14 +6,13 @@ The files in this repository were used to configure the network depicted below. 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the redteam_complete_pb.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-Full ansible playbook:
-![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
+Full ansible playbook ![redteam_complete_pb.yml](ansible/redteam_complete_pb.yml)
 
 Individual playbooks:
-Web server ![webpbk.yml](ansible/webpbk.yml)
-Elk server ![elkpbk.yml](ansible/elkpbk.yml)
-Filebeat ![filebeatpbk.yml](ansible/filebeatpbk.yml)
-Metricbeat ![metricbeatpbk.yml](ansible/metricbeatpbk.yml)
+* Web server ![webpbk.yml](ansible/webpbk.yml)
+* Elk server ![elkpbk.yml](ansible/elkpbk.yml)
+* Filebeat ![filebeatpbk.yml](ansible/filebeatpbk.yml)
+* Metricbeat ![metricbeatpbk.yml](ansible/metricbeatpbk.yml)
 
 
 This document contains the following details:
