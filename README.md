@@ -67,7 +67,7 @@ The playbook implements the following tasks:
 - Config elk VM with Docker by increasing virtual memory, installing python module
 - Download and install docker container sebp/elk:761 with associated ports
 - Download and install filebeat-7.4.0-amd64.deb with config file: filebeat-config.yml
-- Download and install etricbeat-7.4.0-amd64.deb with config file: etricbeat-config.yml
+- Download and install metricbeat-7.4.0-amd64.deb with config file: metricbeat-config.yml
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
